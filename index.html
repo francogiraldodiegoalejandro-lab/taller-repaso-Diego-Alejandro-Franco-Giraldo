@@ -15,6 +15,11 @@
             <a href="#contacto">Reservas</a>
             <a href="#contacto">Contacto</a>
         </nav>
+
+        <!-- Botón de cambio de tema (requerido) -->
+        <div class="controles-usuario">
+            <button id="btn-toggle-tema" class="btn-tema"> Cambiar Tema</button>
+        </div>
     </header>
 
     <main>
@@ -22,6 +27,10 @@
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1>Sabores del Chef</h1>
+                
+                <!-- Contenedor del saludo dinámico (requerido) -->
+                <p id="saludo-tiempo-real" class="texto-resaltado"></p>
+
                 <p>Cocina contemporánea · Experiencia gastronómica</p>
                 <a href="#proyectos" class="btn">Ver menú</a>
             </div>
@@ -49,5 +58,8 @@
             </div>
         </section>
     </main>
+
+    <!-- Script (debe ir justo antes de cerrar body) -->
+    <script src="js/app.js" defer></script>
 </body>
 </html>
