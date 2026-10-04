@@ -1,10 +1,10 @@
 /* ===== Variables globales ===== */
 :root {
-    --color-primario: #8B5E3C;      /* Marrón elegante */
-    --color-secundario: #2C2C2C;    /* Negro suave */
-    --color-acento: #C9A227;        /* Dorado */
-    --color-fondo: #F9F6F1;         /* Beige claro */
-    --color-texto: #4444;
+    --color-primario: #8B5E3C;
+    --color-secundario: #2C2C2C;
+    --color-acento: #C9A227;
+    --color-fondo: #F9F6F1;
+    --color-texto: #444444;
 }
 
 /* ===== Reset básico ===== */
@@ -19,9 +19,11 @@ body {
     color: var(--color-texto);
     background-color: var(--color-fondo);
     line-height: 1.6;
+    /* Transición suave requerida */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ===== Header ===== */
+/* ===== Header con Flexbox ===== */
 header {
     display: flex;
     justify-content: space-between;
@@ -32,6 +34,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    gap: 1.5rem;
 }
 
 .logo {
@@ -52,19 +55,38 @@ nav a {
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
-    position: relative;
 }
 
 nav a:hover {
     color: var(--color-primario);
 }
 
+/* Botón de tema */
+.btn-tema {
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: system-ui, sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-tema:hover {
+    background-color: #b08d1f;
+    transform: translateY(-2px);
+}
+
 /* ===== Hero ===== */
 .hero {
     height: 90vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../img/hero.jpg");
+    background-color: #333;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,8 +97,17 @@ nav a:hover {
 .hero-content h1 {
     font-size: 3.8rem;
     font-weight: 400;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 1px;
+}
+
+/* Estilo del saludo dinámico */
+.texto-resaltado {
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.95;
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
 }
 
 .hero-content p {
@@ -131,7 +162,7 @@ article {
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
 }
 
 article:hover {
@@ -158,6 +189,44 @@ article p {
     font-size: 0.95rem;
     color: #666;
     font-family: system-ui, sans-serif;
+}
+
+/* ===== MODO OSCURO (requerido) ===== */
+body.tema-oscuro {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.tema-oscuro header {
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.tema-oscuro .logo,
+body.tema-oscuro nav a {
+    color: #f0f0f0;
+}
+
+body.tema-oscuro nav a:hover {
+    color: var(--color-acento);
+}
+
+body.tema-oscuro article {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+}
+
+body.tema-oscuro article h3 {
+    color: #f0f0f0;
+}
+
+body.tema-oscuro article p {
+    color: #ccc;
+}
+
+body.tema-oscuro #proyectos h2 {
+    color: #f0f0f0;
 }
 
 /* Responsive */
